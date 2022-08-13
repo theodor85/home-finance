@@ -5,6 +5,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "materialize-css/dist/js/materialize"
 
 import "./init_materialize"
+import "./src/index.tsx"
 
 Rails.start()
 Turbolinks.start()

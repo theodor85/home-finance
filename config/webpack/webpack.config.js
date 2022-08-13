@@ -14,7 +14,24 @@ module.exports = {
   },
   resolve: {
     modules: ["../../app/javascript", "../../node_modules"],
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader'
+      },
+      {
+        test: /\.ts?$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader'
+      },
+    ]
+  },
+
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
