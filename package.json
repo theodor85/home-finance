@@ -3,6 +3,7 @@
     "@rails/actioncable": "^7.0.0",
     "@rails/activestorage": "^7.0.0",
     "@rails/ujs": "^7.0.0",
+    "@types/materialize-css": "^1.0.11",
     "@types/node": "^18.7.2",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",

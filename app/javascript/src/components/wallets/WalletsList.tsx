@@ -1,32 +1,23 @@
 import { IWallet } from "../../models/wallet"
 import { Wallet } from "./Wallet"
+import { Loader } from "../common/Loader"
+import { ErrorMessage } from "../common/ErrorMessage"
 
-const wallets_list: IWallet[] = [
-  {
-    id: 1,
-    name: "Наличные",
-    sum: 30000
-  },
-  {
-    id: 2,
-    name: "Карта Сбербанка",
-    sum: 150352.3,
-  },
-  {
-    id: 3,
-    name: "Крипта",
-    sum: 125362,
-  },
-]
+import { useWallets } from "../../hooks/wallets"
+
 
 export function WalletsList() {
+  const {wallets, loading, error} = useWallets()
+
   return (
     <>
+      { loading && <Loader /> }
+      { error && <ErrorMessage error={error} /> }
       <div className="row">
         <div className="col s7 m7 offset-m2 offset-s2">
           <div className="collection">
 
-            {wallets_list.map(wallet => <Wallet wallet={wallet} key={wallet.id} />)}
+            {wallets.map(wallet => <Wallet wallet={wallet} key={wallet.id} />)}
 
           </div>
         </div>
