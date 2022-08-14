@@ -10,6 +10,3 @@ import "./src/index.tsx"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-
-console.log('QWERT')

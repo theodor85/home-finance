@@ -1,43 +1,17 @@
 require_relative '../base'
+require_relative '../../queries/wallets/list'
 
 
 module Services
   module Wallets
     class List < ::Services::Base
+      def initialize(user_id, time)
+        @user_id = user_id
+        @time = time
+      end
+
       def call
-        # [
-        #   {
-        #     id: 1,
-        #     name: "sdfsdf",
-        #     sum: 30000
-        #   },
-        #   {
-        #     id: 2,
-        #     name: "Кsdfaанка",
-        #     sum: 150352.3,
-        #   },
-        #   {
-        #     id: 3,
-        #     name: "Крd  пта",
-        #     sum: 125362,
-        #   },
-        #   {
-        #     id: 4,
-        #     name: "sdfsdf",
-        #     sum: 30000
-        #   },
-        #   {
-        #     id: 5,
-        #     name: "Кsdfaанка",
-        #     sum: 150352.3,
-        #   },
-        #   {
-        #     id: 6,
-        #     name: "Крd  пта",
-        #     sum: 125362,
-        #   },
-        # ]
-        []
+        ::Queries::Wallets::ListForTheTime.new(@user_id, @time).call
       end
     end
   end
